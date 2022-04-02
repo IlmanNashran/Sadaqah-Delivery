@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -27,6 +27,13 @@ Auth::routes();
 Route::get('/userViewMenu', [MenuController::class, 'userViewMenu'])->middleware('auth');
 
 
+
+Route::get('/ProfileUser', [ProfileController::class, 'editProfileUser'])->name('profileUser')->middleware('auth');
+
+
+
+
+
 //Route for admin
 Route::group(['middleware' => ['auth','admin']], function () {
     
@@ -44,5 +51,7 @@ Route::post('/ManageOrder/{id}/status', [OrderController::class, 'changeStatus']
 
 //display all customers for admin
 Route::get('/ManageProfile', [MenuController::class, 'viewuser'])->name('profile.profilelist');
+
+
 
 });

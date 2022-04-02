@@ -66,7 +66,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li><img src="/svg/profile-default.jpg" style="height:60px" class="profile-nav"></li>
+                            <li><a href="{{ route('profileUser') }}"><img src="/svg/profile-default.jpg" style="height:60px" class="profile-nav"></li></a>
                         @endguest
 
                         
@@ -91,6 +91,6 @@
     }
 
     .profile-nav:hover{
-        transform: scale(1.5);
+        transform: scale(1.1);
     }
 </style>
