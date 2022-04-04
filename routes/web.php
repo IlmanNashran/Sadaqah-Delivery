@@ -24,8 +24,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/userViewMenu', [MenuController::class, 'userViewMenu'])->middleware('auth');
+Route::get('/userViewMenu', [MenuController::class, 'userViewMenu'])->name('userViewMenu');
 
+Route::get('/category',[MenuController::class, 'userViewCategoryMenu'])->name('userViewCategoryMenu');
 
 
 Route::get('/ProfileUser', [ProfileController::class, 'editProfileUser'])->name('profileUser')->middleware('auth');

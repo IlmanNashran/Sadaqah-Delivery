@@ -9,4 +9,5 @@ class ProfileController extends Controller
     public function editProfileUser(){
         return view('ManageProfile.userProfile');
     }
+    
 }

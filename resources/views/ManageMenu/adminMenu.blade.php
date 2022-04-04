@@ -58,6 +58,7 @@
                                             <td>{{ $menu->name }}</td>
                                             <td>{{ $menu->description }}</td>
                                             <td>RM {{ $menu->price }}</td>
+                                            <td>{{ $menu->category }}</td>
 
                                             <td><a href="{{ route('menu.edit', $menu->id) }}"><button
                                                         class="btn btn-primary">Edit</button></a></td> 

@@ -55,6 +55,15 @@
                                     <label for="name">Menu price(RM)</label>
                                     <input type="text" class="form-control" name="price" placeholder="Menu price(RM)">
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="description">Category</label>
+                                    <select class="form-control" name="category">
+                                        <option value=""></option>
+                                        <option value="main menu">Main Menu</option>
+                                        <option value="side menu">Side Menu</option>
+                                    </select>
+                                </div>
     
                                 <div class="form-group">
                                     <label>Image</label>

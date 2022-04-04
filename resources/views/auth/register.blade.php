@@ -136,7 +136,7 @@
 
            /* neutral/gray dark */
 
-color: #545563;
+                color: #545563;
        }
 
        .signup-2{

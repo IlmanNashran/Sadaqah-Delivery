@@ -27,6 +27,7 @@ class MenuController extends Controller
     $data->name=$request->name;
     $data->description=$request->description;
     $data->price=$request->price;
+    $data->category=$request->category;
     $data->save();
     return redirect()->route('menu.create')->with('message',"menu has been added sucessfully");
 }
@@ -78,4 +79,10 @@ class MenuController extends Controller
     return view('ManageMenu.userViewMenu',compact('menus'));
   }
 
+  public function userViewCategoryMenu(Request $request){
+
+    $menus = Menu::where('category',$request->category)->get();
+    return view('ManageMenu.userViewMenu', compact('menus'));
+  }
+  
 }
