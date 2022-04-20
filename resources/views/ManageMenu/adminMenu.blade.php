@@ -2,39 +2,17 @@
 
 @section('content')
     <div class="container">
-        <div class="col-md-12 ">
-            <ul class="nav nav-pills nav-fill navbar navbar-light" style="background-color: #a4d3f5;">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{{route('menu.menulist')}}">Manage Menu</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link"  href="{{route('order.orderlist')}}">All User Oder</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="{{route('profile.profilelist')}}">All User Profile</a>
-                </li>
-    </div><br><br>
+     
      
         <div class="row justify-content-center">
-            <div class="col-md-2">
-                <div class="card">
-                    <div class="card-header">Manage Menu</div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                        <a href="{{route('menu.menulist')}}" class="list-group-item list-group-item-action "style="background-color: #a4d3f5;" >View All Menu</a>
-                        <a href="{{route('menu.create')}}" class="list-group-item list-group-item-action">Create Menu</a>
-  
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
+        <div class="view-menu-title ">View All Menu</div>
             
           
                 <div class="col-md-10">
-                    <div class="card">
-                        <div class="card-header text-center">View All Menu</div>
+                
                             @if ($message =session('message'))
-                            <div class="alest alert-success"><h5>{{ $message }}</h5></div>
+                            <div class="alest alert-success" style="background-color: #355ece"><h5>{{ $message }}</h5></div>
                           @endif
 
                           <table class="table table-bordered">
@@ -44,7 +22,8 @@
                                     <th scope="col">Image</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">.price</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Category</th>
                                     <th scope="col">Edit Menu</th>
                                     <th scope="col">Delete Menu</th>
                                 </tr>
@@ -55,15 +34,15 @@
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
                                             <td><img src="/assets.file/{{$menu->image}}" width="80"></td>
-                                            <td>{{ $menu->name }}</td>
-                                            <td>{{ $menu->description }}</td>
-                                            <td>RM {{ $menu->price }}</td>
-                                            <td>{{ $menu->category }}</td>
+                                            <td class="menu-name">{{ $menu->name }}</td>
+                                            <td class="menu-description">{{ $menu->description }}</td>
+                                            <td class="menu-price">RM {{ $menu->price }}</td>
+                                            <td class="menu-category">{{ $menu->category }}</td>
 
-                                            <td><a href="{{ route('menu.edit', $menu->id) }}"><button
+                                            <td style="text-align:center"><a href="{{ route('menu.edit', $menu->id) }}"><button
                                                         class="btn btn-primary">Edit</button></a></td> 
                                                         
-                                            <td> <a href="{{ route('menu.destroy', $menu->id)}}" class="btn-delete btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></a></td>  
+                                            <td style="text-align:center"> <a href="{{ route('menu.destroy', $menu->id)}}" class="btn-delete btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-trash" ></i></a></td>  
                                         </tr>
                                     @endforeach
 
@@ -78,7 +57,8 @@
 
                             </tbody>
                         </table>
-                        {{ $menus->links() }}
+
+                       
         
     </div>
     <style>
@@ -97,5 +77,119 @@
             font-size: 20px;
         }
 
-    </style>
+        .menu-description{
+            width:600px;
+        }
+   
+
+    .pagnation{
+    background-color: #a4d3f5 !important;
+    }
+
+    .table-bordered{
+             border: 1px solid #e3e3e6;
+            box-sizing: border-box;
+            border-radius: 8px;
+    }
+
+    .view-menu-title{
+        position: relative;
+        height: 28px;
+        left: 5px;
+        right: 0px;
+        top: 0px;
+        /* H5 - semibold 20 (28, 0.1px) */
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+        /* identical to box height, or 140% */
+
+        letter-spacing: 0.1px;
+
+        /* neutral/black */
+
+        color: #2B2B43;
+    }
+
+    .menu-name{
+        height: 20.24px;
+        left: 85px;
+        right: 296.49px;
+        top: calc(50% - 20.24px/2 - 22.26px);
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14.167px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+
+        letter-spacing: 0.101193px;
+
+        /* neutral/black */
+
+        color: #2B2B43;
+    }
+   .menu-description{
+        height: 20.24px;
+        left: 85px;
+        right: 296.49px;
+        top: calc(50% - 20.24px/2 - 22.26px);
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14.167px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+
+        letter-spacing: 0.101193px;
+
+        /* neutral/black */
+
+        color: #5c5c64;
+   }
+   .menu-price{
+    height: 20.24px;
+        left: 85px;
+        right: 296.49px;
+        top: calc(50% - 20.24px/2 - 22.26px);
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14.167px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+
+        letter-spacing: 0.101193px;
+
+        /* neutral/black */
+
+        color: #2B2B43;
+   }
+
+   .menu-category{
+    height: 20.24px;
+        left: 85px;
+        right: 296.49px;
+        top: calc(50% - 20.24px/2 - 22.26px);
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14.167px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+
+        letter-spacing: 0.101193px;
+
+        /* neutral/black */
+
+        color: #5c5c64;
+   }
+</style>
 @endsection

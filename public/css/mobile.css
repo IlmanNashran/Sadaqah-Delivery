@@ -1,0 +1,232 @@
+@media only screen and (min-width: 320px) and (max-width: 788px) {
+
+    .container {
+        width: 100%;
+        padding-left: px;
+        flex-direction: column-reverse;
+    }
+
+    .menubtn-container .btn-menu {
+        position: relative;
+        border: 2px solid #4E60FF;
+        box-sizing: border-box;
+        border-radius: 8px;
+
+        width: 110px;
+        height: 65px;
+        left: 10px;
+        right: 0px;
+        top: calc(50% - 58px/2);
+        margin: 4px;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 120%;
+        /* or 75% */
+
+        text-align: center;
+        letter-spacing: 0.1px;
+
+        /* primary/default */
+        background-color: #ffff;
+        color: rgb(0, 42, 255);
+    }
+
+    .account-title {
+        position: absolute;
+        height: 28px;
+        left: 21px;
+        right: 9px;
+        top: 93px;
+
+        /* H5 - semibold 20 (28, 0.1px) */
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+        /* identical to box height, or 140% */
+
+        letter-spacing: 0.1px;
+
+        /* neutral/black */
+
+        color: #2B2B43;
+    }
+
+    .cartoon {
+        display: none;
+    }
+
+    .profile-box {
+        position: relative;
+        height: 900px;
+        left: 0px;
+        right: 0px;
+        top: 134px;
+        width: 100%;
+
+    }
+
+    .image-profile {
+
+        width: 88px;
+        height: 88px;
+        left: 16px;
+        top: 88px;
+
+        border-radius: 8px;
+    }
+
+    .profile-box .btn .change-btn a {
+        position: static;
+        height: 20px;
+        left: 16px;
+        right: 16px;
+        top: calc(50% - 20px/2);
+
+        /* Button 1 - bold 14 (20, 0.4px) */
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.3px;
+
+        /* primary/default */
+
+        color: #4E60FF;
+
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 8px;
+    }
+
+    .profile-box .remove-btn {
+        left: 260px;
+        width: 10px;
+    }
+
+    .profile-box .firstname-title {
+        width: 80px;
+        height: 16px;
+        left: 20px;
+        right: 0px;
+        top: -30px;
+
+    }
+
+    .profile-box .lastname-title {
+        width: 80px;
+        height: 16px;
+        left: 20px;
+        right: 0px;
+        top: -30px;
+
+    }
+
+    .profile-box .lastname-input input {
+
+        width: 320px;
+        height: 34px;
+        left: 20px;
+        right: 0px;
+        top: -25px;
+
+    }
+
+    .profile-box .email-title {
+        width: 20px;
+        height: 16px;
+        left: 20px;
+        right: 0px;
+        top: -65px;
+
+    }
+
+    .profile-box .email-input input {
+
+        width: 320px;
+        height: 34px;
+        left: 20px;
+        right: 0px;
+        top: -60px;
+    }
+
+
+    .profile-box .phone-title {
+        width: 85px;
+        height: 16px;
+        left: 20px;
+        right: 0px;
+        top: -55px;
+
+    }
+
+    .profile-box .phone-input input {
+
+        width: 320px;
+        height: 34px;
+        left: 20px;
+        right: 0px;
+        top: -50px;
+
+    }
+
+    .profile-box .homeaddress-title {
+        width: 80px;
+        height: 16px;
+        left: 20px;
+        right: 0px;
+        top: -50px;
+
+    }
+
+    .profile-box .homeaddress-input textarea {
+
+        width: 320px;
+        height: 90px;
+        left: 20px;
+        right: 0px;
+        top: -45px;
+
+    }
+
+    .profile-box hr {
+        top: 40px;
+    }
+
+    .profile-box .btn.logout-btn {
+        top: 50px;
+        width: 300px;
+    }
+
+    .profile-box .btn.logout-btn a {
+        margin-left: 100px;
+    }
+
+    .profile-box .btn.discard-btn {
+        top: 620px;
+        width: 160px;
+        left: 20px;
+    }
+
+    .profile-box .btn.save-btn {
+        top: 620px;
+        width: 140px;
+        left: 200px;
+    }
+}

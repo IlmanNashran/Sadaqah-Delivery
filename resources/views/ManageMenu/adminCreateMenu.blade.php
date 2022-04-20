@@ -58,7 +58,7 @@
 
                                 <div class="form-group">
                                     <label for="description">Category</label>
-                                    <select class="form-control" name="category">
+                                    <select class="browser-default" name="category">
                                         <option value=""></option>
                                         <option value="main menu">Main Menu</option>
                                         <option value="side menu">Side Menu</option>
@@ -75,8 +75,9 @@
                                 </div>
                              
                             </div>
-        
-    </div>
+
+                            
+                           
     <style>
         a.list-group-item {
             font-size: 18px;
@@ -94,4 +95,5 @@
         }
 
     </style>
+
 @endsection

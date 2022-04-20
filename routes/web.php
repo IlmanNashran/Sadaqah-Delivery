@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 
 
 /*
@@ -22,16 +23,29 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+//for login authenticcation
 Auth::routes();
 
+//for view the menu page
 Route::get('/userViewMenu', [MenuController::class, 'userViewMenu'])->name('userViewMenu');
 
+
+//route for filter category menu in menu page
 Route::get('/category',[MenuController::class, 'userViewCategoryMenu'])->name('userViewCategoryMenu');
 
-
+//route to User profile page
 Route::get('/ProfileUser', [ProfileController::class, 'editProfileUser'])->name('profileUser')->middleware('auth');
 
 
+
+
+
+
+//route for adding the cart
+Route::get('/adding_Mycart/{id}',[CartController::class,'getAddToCart'])->name('userAddCart');
+
+//route to User cart page 
+Route::get('/MyCart',[CartController::class,'getCart'])->name('userviewCart');
 
 
 

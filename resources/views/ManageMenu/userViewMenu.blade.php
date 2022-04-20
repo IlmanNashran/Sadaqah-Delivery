@@ -4,30 +4,34 @@
 <div class="container">
 
   
-<div class="flex-container">
+    <div class="menubtn-container col-md-12">
+
     <form action="{{route('userViewMenu')}}" method="get">
-        <input type="submit" value="All Menu" name="category" class="btn-menu">
+        <input type="submit" value="All Menu" name="category" class="btn-menu ">
     </form>
     <form action="{{route('userViewCategoryMenu')}}" method="get">
         <input type="submit" value="Main Menu" name="category" class="btn-menu">
-        <input type="submit" value="Side Menu" name="category" class="btn-menu"><br><br>
+        <input type="submit" value="Side Menu" name="category" class="btn-menu">
     </form>
-    </div>
+    
+    </div><br><br>
 
      
             
     <div class="col-md-12">           
-        <div class="flex-container2">
+        <div class="menu-container">
         
                   @foreach ($menus as $menu )
-                  <div class="card col-md-3 mt-3">
+                  <div class="card ">
                       
-                          <img src="/assets.file/{{$menu->image}}"  style="width:100%; height:50%">
+                          <img src="/assets.file/{{$menu->image}}"  style="width:100%; height:50% ">
                           
-                          <div class="co">
-                          <p class="menu-name">{{ $menu->name }}</p>
-                          <p class="menu-description">{{ $menu->description }}</p>
-                          <button class="btn btn-primary">Order</button><br>
+                          <div class="card-detail">
+                          <div class="menu-name">{{ $menu->name }}</div>
+                          <div class="menu-description">{{ $menu->description }}</div><br>
+                          <div class="menu-price">RM {{ $menu->price }}</div>
+
+                          <a href="{{ route('userAddCart',['id'=>$menu->id]) }}" class="btn btn-primary" role="button">Order</a><br>
                         </div>
                     </div>
                   @endforeach
@@ -35,45 +39,41 @@
                 
      </div>          
     
-</div>
-</div>
+    </div>
+ 
+
 <style>
-    .flex-container{
+    .menubtn-container{
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        height: 120px;
-        left: 91px;
-        right: 239px;
-        top: 105px;
-        
+       
     }
     .btn-menu{
-        align-items: center;
-        padding: 16px 20px;
-        width: 170px;
+        position: relative;
+        align-content:center;
         border: 2px solid #4E60FF;
         box-sizing: border-box;
         border-radius: 8px;
-        margin-left:65px;
-    
-        height: 75px;
-        left: 283px;
-        right: 671px;
+        
+        width: 110px;
+        height: 65px;
+        left:290px;
+        right: 0px;
         top: calc(50% - 58px/2);
+        bottom:10px;
+        margin-left:20px;
 
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 700;
-        font-size: 22px;
-        line-height: 130%;
+        font-size: 18px;
+        line-height: 120%;
         /* or 75% */
 
         text-align: center;
         letter-spacing: 0.1px;
 
         /* primary/default */
-
+        background-color:#ffff;
         color: #4E60FF;
     }
 
@@ -83,39 +83,45 @@
 
    
     .card {
- 
+        position: relative;
         transition: 0.3s;
         border-radius: 8px; /* 5px rounded corners */
-        left: 0px;
+        left:0px;
         right: 0px;
         top: 0px;
-        width: 390px;
-        height:340px;
-        margin-left:30px;
+        width: 320px;
+        height:265px;
+        margin-left:20px;
     
         border: 1px solid #EDEEF2;
         box-sizing: border-box;
         border-radius: 16px;
 
-        object-fit: cover;
+        }
+        .card img {
+            border-radius: 8px;
+            width:100%;
+            object-fit: cover;
         }
 
-  .co{
-    padding: 10px 16px;
-  }
+        .card-detail{
+            padding: 3px 16px;
+        }
    
-  .flex-container2{
+  .menu-container{
     display: flex;
     flex-wrap: wrap;
+
+
   }
    .menu-name{
-   
+   position: relative;
     height: 24px;
     left: 0px;
     right: 32px;
     top: 0px;
 
-    /* H6 - bold 18 (24, 0.1px) */
+               /* H6 - bold 18 (24, 0.1px) */
 
     font-family: 'Nunito';
     font-style: normal;
@@ -131,20 +137,41 @@
     color: #2B2B43;
     }
 
+ 
+
+    .menu-price{
+        position: relative;
+        height: 25px;
+        left: 0px;
+        right: 0px;
+        top:-5px;
+          
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+
+        color: #5b5b62;
+    }
+
+
     .menu-description{
-        
-        width:50%;
+        position: relative;
+        width:100%;
         height: 40px;
         left: 0px;
-        top: 0px;
-
+        top:5px;
+        
         /* Small 2 - semibold 12 (16, 0px) */
 
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 600;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 16px;
+        
         /* identical to box height, or 133% */
 
         display: flex;
@@ -161,10 +188,11 @@
         margin: 0px 8px;
             }
 
-            img {
-        width: 200px;
-        height: 300px;
-        object-fit: cover;
-        }
+    .btn{
+        position: relative;
+        left:220px;
+        top:-35px;
+    }
+        
 </style>
 @endsection

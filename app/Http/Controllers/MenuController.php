@@ -75,8 +75,8 @@ class MenuController extends Controller
   }
 
   public function userViewMenu(){
-    $menus = Menu::latest()->get();
-    return view('ManageMenu.userViewMenu',compact('menus'));
+  
+    return view('ManageMenu.userViewMenu');
   }
 
   public function userViewCategoryMenu(Request $request){
@@ -84,5 +84,7 @@ class MenuController extends Controller
     $menus = Menu::where('category',$request->category)->get();
     return view('ManageMenu.userViewMenu', compact('menus'));
   }
+  
+
   
 }

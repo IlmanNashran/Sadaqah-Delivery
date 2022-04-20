@@ -7,31 +7,30 @@
             
                 <div class="title">Login</div>
                
-                <p class="signup-1">Sign in with your data that you entered during your registration.</p>
+                <p class="login-description">Sign in with your data that you entered during your registration.</p>
                 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="">
 
-                            <label for="email" class="signup-2"> {{ __('E-Mail Address') }}</label><br>
+                            <label for="email" class="email-password-title"> {{ __('E-Mail Address') }}</label>
 
-                            <div class="signup-2 col-md-6"><br>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <div class=" col-md-12 browser-default"><br>
+                                <input id="email" type="email" class="email-password-input form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div><br><br>
+                            </div><br>
 
                         <div class="row mb-3">
-                            <label for="password" class="signup-2">{{ __('Password') }}</label><br>
+                            <label for="password" class="email-password-title">{{ __('Password') }}</label>
 
-                            <div class=" signup-2 col-md-6"><br>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <div class="  col-md-6"><br>
+                                <input id="password" type="password" class="email-password-input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -39,38 +38,28 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div><br><br>
-
-                        <div class=" row mb-3">
-                            <div class="signup-2 col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
                         </div><br>
+
+                     
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-3">
-                                <button style="width: 420px; margin-left:-7%" type="submit" class="btn btn-primary">
+                                <button style="width: 220px; margin-left:-7%" type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button><br><br>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn" href="{{ route('password.request') }} " style="color: #2436f8; margin-left:17%">
+                                    <a class="list-group-item" href="{{ route('password.request') }} " >
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
                             </div>
-                        </div><br><br><br>
+                        </div><br>
 
-                        <div class="signup-4">Don’t have an account?   
-                             <a  class="btn" style="color: #2436f8" href="{{ route('register') }}" >
+                        <div class="list-group-item " style="margin-left:20%"><p>Don’t have an account?   
+                             <a   href="{{ route('register') }}" >
                             {{ __('Sign up') }}
-                        </a></div>
+                        </a></p></div>
                     </form>
                
            
@@ -81,12 +70,17 @@
 
     
     a.list-group-item {
-        font-size: 18px;
+        position: relative;
+        font-size: 15px;
+        left:20%;
+    }
+ 
+    p.list-group-item {
+        color: #545563;
     }
 
     a.list-group-item:hover {
-        background-color: #a4d3f5;
-        color: #fff;
+        color: #1f14ee;
     }
 
     .title {
@@ -112,7 +106,7 @@
         color: #2B2B43;
             }
        
-        .signup-1{
+        .login-description{
            
             height: 40px;
             left: 15px;
@@ -132,59 +126,53 @@
 
             /* neutral/gray dark */
 
-color: #545563;
+            color: #545563;
+        }
+        .email-password-title{
+    
+            width:70%;
+            height: 16px;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            margin-left: 20%;
+
+
+            /* Small 2 - semibold 12 (16, 0px) */
+
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+            /* identical to box height, or 133% */
+        }
+        
+        .btn{
+            position: relative;
+            left:27%;
+
+        }
+        
+        .email-password-input{
+            width: 70%;
+            height: 50px;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            margin-left: 20%;
+            /* Small 2 - semibold 12 (16, 0px) */
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 16px;
+            /* identical to box height, or 133% */
+            /* neutral/gray dark */
+            border: 1px solid #9e9e9e;
+            box-sizing: border-box;
+            border-radius: 8px;
+            border-width: 1px;
         }
 
-    .signup-2{
-       
-    height: 16px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    margin-left: 20%;
-    /* Small 2 - semibold 12 (16, 0px) */
-
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    /* identical to box height, or 133% */
-
-
-    /* neutral/gray dark */
-
-    color: #545563;
-
-    
-    }
-    
-    .signup-4{
-        
-        width: 350px;
-        height: 20px;
-        left: 165px;
-        top: 800px;
-        margin-left: 35%;
-        /* Body 1 - regular 14 (20, 0.1px) */
-
-        font-family: 'Nunito';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        /* identical to box height, or 143% */
-
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: 0.1px;
-
-        /* neutral/gray dark */
-
-        color: #545563;
-    }
-     
-
-</style>
 @endsection
