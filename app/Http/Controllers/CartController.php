@@ -19,9 +19,15 @@ class CartController extends Controller
         
         $request->session()->put('cart', $cart);
 
-       
-        return redirect()->route('userViewMenu');
+        $alert = array(
+            'message' => 'success add to cart',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('userViewMenu')->with('$alert');
+        
     }
+    
 
     public function getCart() {
         if (!Session::has('cart')) {
@@ -29,7 +35,15 @@ class CartController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        
-        return view('ManageCart.userViewCart', ['menus' => $cart->items, 'totalPrice' => $cart->totalPrice,]);
+        $menus=$cart->items;
+        $totalPrice=$cart->totalPrice;
+        return view('ManageCart.userViewCart', compact('menus','totalPrice'));
     }
+
+
+    public function userCheckout(){
+
+        return view('ManageCheckOut.checkoutOut');
+    }
+
 }

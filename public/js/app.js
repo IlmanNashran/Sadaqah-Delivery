@@ -1347,3 +1347,30 @@ document.querySelectorAll('.btn-delete').forEach((button) => {
     }
   })
 })
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.slider');
+  var instances = M.Slider.init(elems);
+});
+
+
+//for zoom picture
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.materialboxed');
+  var instances = M.Materialbox.init(elems);
+});
+
+
+//for pick method payment
+window.addEventListener("DOMContentLoaded", event => {
+  const options = {
+    duration: 300,
+    onShow: null,
+    swipeable: false,
+    responsiveThreshold: Infinity
+  };
+
+  const tabsContainer = document.querySelector(".tabs");
+  M.Tabs.init(tabsContainer, options);
+}); 

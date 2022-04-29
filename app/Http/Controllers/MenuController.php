@@ -74,9 +74,9 @@ class MenuController extends Controller
       return view('ManageProfile.adminViewProfile',compact('users'));
   }
 
-  public function userViewMenu(){
-  
-    return view('ManageMenu.userViewMenu');
+  public function userViewMenu(Request $request){
+    $menus = Menu::latest()->get();
+    return view('ManageMenu.userViewMenu', compact('menus'));
   }
 
   public function userViewCategoryMenu(Request $request){

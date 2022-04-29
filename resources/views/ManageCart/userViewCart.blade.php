@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="container">
+<div class="container row">
 
-   <div class="md-col-8">
+   <div class="col s8">
     <div class="cart-title">My Cart</div>
     <div class="cart-border">
   
@@ -22,46 +22,60 @@
            <td> <div class="cart-menu-title">{{ $menu['item']->name}}
             <h1> {{ $menu['item']->description}}</h1></div></td>
             <td> <div class ="cart-manage-qty"> {{ $menu['qty'] }}</div></td>
-            <td>  <div class="cart-menu-price">RM19.0</div></td>
-            <td> <div class="cart-menu-checkbox"></div></td>
+            <td> <div class="cart-menu-price">RM{{ $menu['price'] }}</div></td>
             <td> <div class="cart-menu-bin"><i class="material-icons " style="color: #83859C"">delete</></div></td>
             </tr> 
        
 
         @endforeach 
-    </tbody></table>
+    </tbody>
+    </table>
+    <div class="total-price"><h6> Total Price :  RM{{$totalPrice }}</h6></div>
+    
+    <hr>
 
         @else
            <p>no cart menu</p>
         @endif
     </div>
     
-    </div>
+   
        <br><br>
     <div class="add-menu ma"><i class="material-icons " style="color: #4E60FF">arrow_back</i>
         <a href="{{route('userViewMenu')}}">Add more meals</a></div>
-   </div>
+    </div>
     
-   <div class="md-col-4">
+        <div class="col s4">
        <div class="delivery-map-box">
+      
         <div class="title">Delivery to:</div>
+
+        <div class="delivery-to-name">
+             <p>Name:</p>
+            <input type="text">
+        </div>
+
+        <div class="delivery-to-phone">
+            <p>Phone Number:</p>
+           <input type="text">
+       </div>
+        
+       <div class="delivery-to-address"><p>Address:</p></div>
         <div class="map"><img src="/svg/map.png"></div>
         <div><textarea name="address" id="" cols="30" rows="10" placeholder="Your address delivery..."></textarea></div>
-       </div>
+       </div><br>
 
        <div class="checkout-box">
         <div class="title">Payment summary</div>
         <div class="subtotal">Subtotal</div>
         <div class="shipping">Shipping</div>
         <div class="total">Total (tax incl.)</div>
-        <div class="btn checkout-btn"><a href="">Proceed to checkout</a></div>
-    </div>
+        <div class="btn checkout-btn"><a href="{{ route('userCheckout')}}">Proceed to checkout</a></div>
+    </div><br>
 
    </div>
 
-
-</div>
-
+   </div>
 <style>
 
     .cart-title{
@@ -92,7 +106,7 @@
         top: 0%;
         bottom: 0%;
 
-        width:70%;
+        width:100%;
 
         /* neutral / white */
 
@@ -148,7 +162,9 @@
 
     }
     
-
+    .cart-menu-img {
+        width:35px;
+    }
 
      .cart-menu-img img{
         position: relative;
@@ -164,10 +180,10 @@
       
         position: relative;
         height: 20.24px;
-        left: 10px;
+        left: 0px;
         right:0px;
-        bottom:30px;
-
+        bottom:45px;
+        width:90px ;
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 700;
@@ -184,10 +200,10 @@
 
     .cart-menu-title h1{
         position: relative;
-        width:250px;
+        width:260px;
         left: 0px;
         right: 0px;
-        top:-10px;;
+        bottom:40px;;
 
         font-family: 'Nunito';
         font-style: normal;
@@ -290,16 +306,15 @@
         margin: 0px 8px;
     }
 
-    tbody tr td{
-        width:100px;
-    }
+
 
     .delivery-map-box{
-        position: absolute;
+        position: relative;
         width: 354.17px;
-        height: 433.1px;
-        right: 150.79px;
-        top: 18%;
+        height: 680px;
+        right:0px;
+        left:0px;
+        bottom:0px;
         background: #FFFFFF;
         /* neutral/gray lightest */
 
@@ -308,7 +323,7 @@
         border-radius: 16.1908px;
     }
     .delivery-map-box .title{
-        position: absolute;
+        position: relative;
         width: 200px;
         margin:13px;
         top:5px;
@@ -327,17 +342,17 @@
         color: #2B2B43;
     }
     .delivery-map-box img{
-        position: absolute;
-        right: 15px;
-        top: 80px;
+        position: relative;
+        right: -14px;
+        top: 20px;
     }
 
     textarea{
 
-        position: absolute;
+        position: relative;
         height:25%;
         left:15px;
-        top:73%;
+        bottom:-30px;
         width:90%;
         
        
@@ -351,11 +366,12 @@
     }
 
     .checkout-box{
-        position: absolute;
+        position: relative;
         width: 354.17px;
-        height: 222.62px;
-        right: 150.79px;
-        top: 590px;
+        height: 240.62px;
+        right:0px;
+        left:0px;
+        
         border: 1.01193px solid #EDEEF2;
         box-sizing: border-box;
         border-radius: 16.1908px; 
@@ -363,11 +379,11 @@
     }
 
     .checkout-box .title{
-        position: absolute;
+        position: relative;
         height: 24.29px;
         left: 16.19px;
         right: 16.19px;
-        top: 16.19px;
+        bottom:-10px;
 
         font-family: 'Nunito';
         font-style: normal;
@@ -384,11 +400,11 @@
     }
 
     .checkout-box .subtotal{
-        position: absolute;
+        position: relative;
         width: 52px;
         height: 19px;
         left: 16.19px;
-        top: 60.72px;
+        bottom:-40px;
 
         font-family: 'Nunito';
         font-style: normal;
@@ -405,11 +421,11 @@
     }
 
     .checkout-box .shipping{
-        position: absolute;
+        position: relative;
         width: 53.63px;
         height: 18.21px;
         left: 16.19px;
-        top: 91.07px;
+        bottom: -60px;
 
         font-family: 'Nunito';
         font-style: normal;
@@ -426,11 +442,11 @@
 }
 
 .checkout-box .total{
-    position: absolute;
+    position: relative;
     width: 96px;
     height: 21px;
     left: 16.19px;
-    top: 125.48px;
+    top: 80px;
 
     font-family: 'Nunito';
     font-style: normal;
@@ -456,7 +472,7 @@
     height: 44px;
     left: 16.78px;
     right: 15.6px;
-    top: 161.91px;
+    bottom:10px;
 
     /* primary / default */
 
@@ -496,8 +512,90 @@
     flex: none;
     order: 0;
     flex-grow: 1;
-margin: 0px 8px;
+     margin: 0px 8px;
 }
+
+.total-price h6{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    margin-left:56%;
+    /* identical to box height, or 143% */
+}
+
+.delivery-to-name p{
+    position: relative;
+    margin-left:10px;
+    bottom:-10px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+
+    /* neutral/gray dark */
+
+    color: #545563;
+}
+
+.delivery-to-name input{
+    width:95%;
+    height:30px;
+    margin-left:10px;
+    border: 1px solid #C7C8D2;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+}
+
+.delivery-to-phone p{
+    position: relative;
+    margin-left:10px;
+    bottom:-10px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+
+    /* neutral/gray dark */
+
+    color: #545563;
+}
+
+.delivery-to-phone input{
+    width:95%;
+    height:30px;
+    margin-left:10px;
+    border: 1px solid #C7C8D2;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+}
+
+.delivery-to-address p{
+    position: relative;
+    margin-left:10px;
+    bottom:-10px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+
+    /* neutral/gray dark */
+
+    color: #545563;
+}
+
 </style>
 
 @endsection

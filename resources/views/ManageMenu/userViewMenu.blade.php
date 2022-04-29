@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
 
-  
-    <div class="menubtn-container col-md-12">
+
+    <div class="menubtn-container ">
 
     <form action="{{route('userViewMenu')}}" method="get">
         <input type="submit" value="All Menu" name="category" class="btn-menu ">
@@ -24,7 +25,7 @@
                   @foreach ($menus as $menu )
                   <div class="card ">
                       
-                          <img src="/assets.file/{{$menu->image}}"  style="width:100%; height:50% ">
+                         <div class="img-saiz"> <img class="materialboxed" src="/assets.file/{{$menu->image}}"></div>
                           
                           <div class="card-detail">
                           <div class="menu-name">{{ $menu->name }}</div>
@@ -40,7 +41,8 @@
      </div>          
     
     </div>
- 
+    <br>
+
 
 <style>
     .menubtn-container{
@@ -194,5 +196,17 @@
         top:-35px;
     }
         
+ 
+
+    .img-saiz img{
+        height:100px ;
+        width: 300px;
+    
+        
+    }
+    .img-saiz img::shadow{
+         height:100%;
+         width: 50%;
+    }
 </style>
 @endsection

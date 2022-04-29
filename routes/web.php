@@ -20,11 +20,15 @@ use App\Http\Controllers\CartController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('userHome');
 });
 
 //for login authenticcation
 Auth::routes();
+
+
+//route go to home page
+Route::get('/userHomePage', [HomeController::class, 'userViewHome'])->name('userViewHome');
 
 //for view the menu page
 Route::get('/userViewMenu', [MenuController::class, 'userViewMenu'])->name('userViewMenu');
@@ -33,12 +37,10 @@ Route::get('/userViewMenu', [MenuController::class, 'userViewMenu'])->name('user
 //route for filter category menu in menu page
 Route::get('/category',[MenuController::class, 'userViewCategoryMenu'])->name('userViewCategoryMenu');
 
+
+
 //route to User profile page
 Route::get('/ProfileUser', [ProfileController::class, 'editProfileUser'])->name('profileUser')->middleware('auth');
-
-
-
-
 
 
 //route for adding the cart
@@ -46,6 +48,10 @@ Route::get('/adding_Mycart/{id}',[CartController::class,'getAddToCart'])->name('
 
 //route to User cart page 
 Route::get('/MyCart',[CartController::class,'getCart'])->name('userviewCart');
+
+//route to checkout page
+Route::get('/checkoutPage',[CartController::class,'userCheckout'])->name('userCheckout');
+
 
 
 

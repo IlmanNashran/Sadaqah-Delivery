@@ -49,11 +49,12 @@
           @else
          
           <ul id="nav-mobile " class="navbar right hide-on-med-and-down">
-            <li><a  href="{{ route('userViewMenu')}}">Home</a></li>
+            <li><a  href="{{ route('userViewHome')}}">Home</a></li>
+            <li><a  href="{{ route('userViewMenu')}}">Menu</a></li>
             <li><a  href="">My Order</a></li>
             <li><a href="{{ route('userviewCart') }}"><div class="cart-box"><img src="/svg/shopping bag.svg" >
               @if (Session::has('cart'))
-            @livewire('cart-counter')</div></li></a>
+            <span class="badge">{{ Session::get('cart')->totalQty}}</span></div></li></a>
             @endif
             <li><a href="{{ route('profileUser') }}"><img src="/svg/profile-default.jpg" style="height:60px" class="profile"></li></a>
           </ul>
@@ -73,7 +74,8 @@
             <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           </div></li>
-          <li><a href="{{route('userViewMenu')}}"><i class="material-icons">home</i>Main Menu</a></li>
+          <li><a href="{{route('userViewHome')}}"><i class="material-icons">home</i>Home</a></li>
+          <li><a href="{{route('userViewMenu')}}"><i class="material-icons">restaurant_menu</i>Menu</a></li>
           <li><a href="{{ route('userviewCart')}}"><i class="material-icons">local_mall</i>My Cart</a></li>
           <li><a href="#!"><i class="material-icons">local_offer</i>My Oder</a></li>
     
@@ -85,11 +87,43 @@
       <main class="py-4">
         @yield('content')
     </main>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
     <style>
 
-      body{
-          overflow-x:hidden;
-      }
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
           .profile{
               width: 60px;
               height:10px;
