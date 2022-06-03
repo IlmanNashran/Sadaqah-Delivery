@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1317ec5257b12ca7a55b4ee80dc3bb7",
+    "content-hash": "024279c7f33158180b4c514cf74565fc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -121,6 +121,63 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "cartalyst/stripe",
+            "version": "v2.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/stripe.git",
+                "reference": "e75b4d714fec5f034d533e55f5365f0229b5686d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/stripe/zipball/e75b4d714fec5f034d533e55f5365f0229b5686d",
+                "reference": "e75b4d714fec5f034d533e55f5365f0229b5686d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0|~7.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "branch-alias": {
+                    "dev-master": "2.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cartalyst\\Stripe\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com",
+                    "homepage": "https://cartalyst.com"
+                }
+            ],
+            "description": "A comprehensive Stripe API package.",
+            "keywords": [
+                "cartalyst",
+                "php",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/cartalyst/stripe/issues",
+                "source": "https://github.com/cartalyst/stripe/tree/v2.4.6"
+            },
+            "time": "2021-10-09T10:40:49+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -2666,6 +2723,66 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v8.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "e48ebf628d0e97e205f946ecb97fcd2de00f7926"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e48ebf628d0e97e205f946ecb97fcd2de00f7926",
+                "reference": "e48ebf628d0e97e205f946ecb97fcd2de00f7926",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.5.0",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/stripe/stripe-php/issues",
+                "source": "https://github.com/stripe/stripe-php/tree/v8.5.0"
+            },
+            "time": "2022-06-01T19:17:59+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

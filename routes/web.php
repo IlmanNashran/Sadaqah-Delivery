@@ -49,9 +49,15 @@ Route::get('/adding_Mycart/{id}',[CartController::class,'getAddToCart'])->name('
 //route to User cart page 
 Route::get('/MyCart',[CartController::class,'getCart'])->name('userviewCart');
 
-//route to checkout page
-Route::get('/checkoutPage',[CartController::class,'userCheckout'])->name('userCheckout');
 
+Route::post('/',[CartController::class,'addDeliveryTo'])->name('addDeliveryTo');
+
+//route to checkout page
+Route::get('/checkout',[CartController::class,'userCheckout'])->name('userCheckout');
+
+//route submit payment checkout
+
+Route::post('/checkout/payment',[CartController::class,'postCheckOutPayment'])->name('postCheckOutPayment');
 
 
 

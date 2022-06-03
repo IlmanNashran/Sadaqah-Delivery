@@ -24,6 +24,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/css/materialize.min.css">
     <link rel="stylesheet" href="/css/mobile.css">
+    
 
     
     <!-- ajax -->
@@ -92,8 +93,9 @@
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            <img src="/svg/sdtrans.png" style="width:150px" alt="">
+            <h5 class="white-text">Sadaqah Delivery</h5>
+            <p class="grey-text text-lighten-4">Make your life easier to Sedekah <br>anywhere, anytime no matter how busy your life style is</p>
           </div>
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Links</h5>
@@ -104,12 +106,17 @@
               <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
             </ul>
           </div>
+           
+            
+
+          </div>
+
         </div>
       </div>
       <div class="footer-copyright">
         <div class="container">
-        © 2014 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        © 2021 Copyright Text
+       
         </div>
       </div>
     </footer>
@@ -210,6 +217,8 @@ body {
       
       </style>
     @livewireScripts
+
+    @yield('scripts')
 </body>
 </html>
 

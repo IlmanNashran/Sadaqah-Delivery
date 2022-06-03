@@ -10,6 +10,11 @@ class Cart extends Model
     public $items = null;
     public $totalQty = 0;
     public $totalPrice = 0;
+
+    public $cartNameDeliverTo = null;
+    public $cartPhoneNumber = 0;
+    public $cardAddressDeliverTo = null;
+
     
 
     public function __construct($oldCart)
@@ -18,6 +23,9 @@ class Cart extends Model
             $this->items = $oldCart->items;
             $this->totalQty = $oldCart->totalQty;
             $this->totalPrice = $oldCart->totalPrice;
+
+            $this->cartNameDeliverTo = $oldCart->cartNameDeliverTo;
+            $this->cardAddressDeliverTo = $oldCart->cardAddressDeliverTo;
         }
     }
 
@@ -34,5 +42,12 @@ class Cart extends Model
         $this->items[$id] = $storedItem;
         $this->totalQty++;
         $this->totalPrice += $item->price;
+    }
+
+
+    public function addDeliveryTo($name,$phoneNumber,$address){
+        $this->cartNameDeliverTo = $name;
+        $this->cartPhoneNumber = $phoneNumber;
+        $this->cardAddressDeliverTo = $address;
     }
 }
