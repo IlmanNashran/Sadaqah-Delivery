@@ -50,27 +50,38 @@
       
         <div class="title">Delivery to:</div>
 
-        <div class="delivery-to-name">
-             <p>Name:</p>
-            <input type="text">
-        </div>
+<form action="{{ route('addDeliveryTo') }}" method="post">
 
-        <div class="delivery-to-phone">
-            <p>Phone Number:</p>
-           <input type="text">
-       </div>
-        
-       <div class="delivery-to-address"><p>Address:</p></div>
-        <div class="map"><img src="/svg/map.png"></div>
-        <div><textarea name="address" id="" cols="30" rows="10" placeholder="Your address delivery..."></textarea></div>
-       </div><br>
+    <div class="delivery-to-name">
+        <p>Name:</p>
+       <input type="text" name="name" id="name" required>
+   </div>
 
-       <div class="checkout-box">
-        <div class="title">Payment summary</div>
-        <div class="subtotal">Subtotal</div>
-        <div class="shipping">Shipping</div>
-        <div class="total">Total (tax incl.)</div>
-        <div class="btn checkout-btn"><a href="{{ route('userCheckout')}}">Proceed to checkout</a></div>
+   <div class="delivery-to-phone">
+       <p>Phone Number:</p>
+      <input type="text" name="phonenumber" id="address" required >
+  </div>
+   
+  <div class="delivery-to-address"><p>Address:</p></div>
+   <div class="map"><img src="/svg/map.png"></div>
+   <div><textarea name="address" id="address" cols="30" rows="10" placeholder="Your address delivery..." required></textarea></div>
+  </div><br>
+
+  <div class="checkout-box">
+   <div class="title">Payment summary</div>
+
+   <div class="subtotal">Subtotal</div>
+   <div class="payment-info">RM {{ $totalPrice }}</div>
+
+   <div class="shipping">Shipping</div>
+   <div class="payment-info">RM 0</div>
+
+   <div class="total">Total (tax incl.)</div>
+   <div class="payment-info">RM {{ $totalPrice }}</div>
+
+{{ csrf_field() }}
+    <button type="submit" class="btn checkout-btn"><a>Proceed to checkout</a></button>
+</form>
     </div><br>
 
    </div>
@@ -425,7 +436,7 @@
         width: 53.63px;
         height: 18.21px;
         left: 16.19px;
-        bottom: -60px;
+        bottom: -38px;
 
         font-family: 'Nunito';
         font-style: normal;
@@ -446,7 +457,7 @@
     width: 96px;
     height: 21px;
     left: 16.19px;
-    top: 80px;
+    top: 40px;
 
     font-family: 'Nunito';
     font-style: normal;
@@ -596,6 +607,27 @@
     color: #545563;
 }
 
+
+    .payment-info{
+        position: relative;
+        width: 52px;
+        height: 19px;
+        left: 75%;
+        bottom:-18px;
+
+        font-family: 'Nunito';
+        font-style: bold;
+        font-weight: 400;
+        font-size: 13.155px;
+        line-height: 18px;
+        /* identical to box height, or 138% */
+
+        letter-spacing: 0.202385px;
+
+        /* neutral/gray dark */
+
+        color: #4e60ff;
+}
 </style>
 
 @endsection
